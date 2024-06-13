@@ -1,0 +1,29 @@
+{
+  "name": "custom-blocks",
+  "version": "1.0.0",
+  "author": "",
+  "license": "GPL v3",
+  "description": "Custom theme blocks for Gutenberg.",
+  "private": true,
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "main": "block.js",
+  "scripts": {
+    "start": "cross-env BABEL_ENV=default webpack --watch",
+    "build": "cross-env BABEL_ENV=default NODE_ENV=production webpack"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "cross-env": "^5.0.1",
+    "webpack": "^3.1.0"
+  },
+  "dependencies": {},
+  "keywords": [
+    "gutenberg",
+    "wordpress"
+  ]
+}

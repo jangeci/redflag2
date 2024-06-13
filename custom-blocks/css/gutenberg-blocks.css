@@ -1,0 +1,17 @@
+.custom-post-chooser { margin-bottom: 16px; }
+.custom-post-chooser input { width: 400px; max-width: 100%; }
+
+.chosenPostContainer { box-sizing: border-box; position: relative; display: flex; align-items: center; height: 31px; font-size: 14px; font-family: arial; border-radius: 4px; border: 1px solid #8d96a0; background: transparent; text-align: left; width: 400px; max-width: 100%; padding: 0 30px 0 8px; line-height: 31px; overflow: hidden; }
+.chosenPostContainer p {white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+.autocompleteBlock { padding: 5px; background: #fff; position: absolute; bottom: 36px; width: 100%; z-index: 200; }
+.autocompleteBlock .singlePostOption { border: 1px solid #cbcbcb; border-radius: 5px; padding: 3px; margin: 2px; }
+.deleteChosenPost { cursor: pointer; background: transparent; border: none; position: absolute; right: 0; height: 31px; width: 32px; }
+.deleteChosenPost i { top: 50%; transform: translateY(-50%); right: 12px; position: absolute; }
+.deleteChosenPost i:before, .deleteChosenPost i:after { content: ''; width: 5px; height: 18px; background-color: #000; position: absolute; top: 50%; left: 50%; transition: background-color 0.4s linear; }
+.deleteChosenPost i:before { transform: translate(-50%, -50%) rotate(45deg); }
+.deleteChosenPost i:after { transform: translate(-50%, -50%) rotate(-45deg); }
+.deleteChosenPost:hover i:before, .deleteChosenPost:hover i:after, .deleteChosenPost:focus i:before, .deleteChosenPost:focus i:after { background: #cbcbcb;}
+
+.vertical-space8 { height: 8px; }
+
+.pageHeader { padding: 0 20px; border: 1px solid black; background: lightgrey; }
