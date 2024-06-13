@@ -184,4 +184,20 @@ class Renderer
 
         return $html;
     }
+
+    static function CustomHeroImage($attributes, $content)
+    {
+
+        $html = '</div>';
+        $html .= '<div class="custom-hero-image" style="background-image: url(' . wp_get_attachment_url($attributes['imgId']) . ')">';
+        $html .= '<div class="container">';
+        $html .= '<div class="custom-hero-image-content">';
+        $html .= $content;
+        $html .= '</div>';
+        $html .= '</div>';
+        $html .= '</div>';
+        $html .= '<div class="container">';
+
+        return $html;
+    }
 }

@@ -237,6 +237,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__component_page_header__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__component_large_slider_large_slider__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__component_google_map__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__component_custom_hero_image__ = __webpack_require__(8);
+
 
 
 
@@ -257,6 +259,7 @@ if (typeof JG === 'undefined') {
             Object(__WEBPACK_IMPORTED_MODULE_3__component_page_header__["a" /* default */])();
             Object(__WEBPACK_IMPORTED_MODULE_4__component_large_slider_large_slider__["a" /* default */])();
             Object(__WEBPACK_IMPORTED_MODULE_5__component_google_map__["a" /* default */])();
+            Object(__WEBPACK_IMPORTED_MODULE_6__component_custom_hero_image__["a" /* default */])();
         }
     };
 })($);
@@ -746,6 +749,93 @@ var Fragment = wp.element.Fragment;
 
         save: function save() {
             return null;
+        }
+    });
+});
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var registerBlockType = wp.blocks.registerBlockType;
+var _wp$blockEditor = wp.blockEditor,
+    InnerBlocks = _wp$blockEditor.InnerBlocks,
+    MediaUpload = _wp$blockEditor.MediaUpload;
+var Button = wp.components.Button;
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+    registerBlockType('jg-blocks/custom-hero-image', {
+        title: 'Custom hero image block',
+        icon: '',
+        category: 'jg-blocks',
+        attributes: {
+            imgUrl: {
+                type: 'string',
+                default: ''
+            },
+            imgId: {
+                type: 'number',
+                default: ''
+            }
+        },
+
+        edit: function edit(properties) {
+            var _properties$attribute = properties.attributes,
+                description = _properties$attribute.description,
+                title = _properties$attribute.title;
+
+
+            var getImageButton = function getImageButton(openEvent) {
+                if (properties.attributes.imgUrl) {
+                    return wp.element.createElement('img', {
+                        src: properties.attributes.imgUrl,
+                        onClick: openEvent,
+                        className: 'image'
+                    });
+                } else {
+                    return wp.element.createElement(
+                        'div',
+                        { className: 'button-container' },
+                        wp.element.createElement(
+                            Button,
+                            {
+                                onClick: openEvent,
+                                className: 'button button-large' },
+                            'Pick an image'
+                        )
+                    );
+                }
+            };
+
+            return wp.element.createElement(
+                'div',
+                { className: properties.className + '__container slider-section' },
+                wp.element.createElement(
+                    'h3',
+                    null,
+                    'Custom hero image block'
+                ),
+                wp.element.createElement(MediaUpload, {
+                    onSelect: function onSelect(media) {
+                        properties.setAttributes({ imgUrl: media.url, imgId: media.id });
+                    },
+                    type: 'image',
+                    value: properties.attributes.imgUrl,
+                    render: function render(_ref) {
+                        var open = _ref.open;
+                        return getImageButton(open);
+                    }
+                }),
+                wp.element.createElement(InnerBlocks, {
+                    allowedBlocks: ['core/paragraph', 'core/heading', 'core/navigation-link', 'core/button'],
+                    template: ['core/paragraph'] })
+            );
+        },
+
+        save: function save() {
+            return wp.element.createElement(InnerBlocks.Content, null);
         }
     });
 });

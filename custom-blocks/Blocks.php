@@ -84,6 +84,12 @@ function register_red_flag_blocks() {
         'editor_script' => 'jg-blocks',
         'render_callback' => ['Renderer', 'GoogleMap']
     ]);
+
+    register_block_type ('jg-blocks/custom-hero-image', [
+        'editor_style' => 'jg-blocks',
+        'editor_script' => 'jg-blocks',
+        'render_callback' => ['Renderer', 'CustomHeroImage']
+    ]);
 }
 add_action( 'init', 'register_red_flag_blocks' );
 
