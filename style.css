@@ -10,7 +10,7 @@ Text Domain: redFlag
 /* rgba(152, 27, 30, 0.9)*/
 
 :root {
-    --primary-color: #981B1E;
+    --primary-color: #38b449;
     --menu-text-color: #333333;
 }
 
@@ -82,9 +82,9 @@ li { font-size: 17px; line-height: 1.2; margin-bottom: 10px; }
 
 .header-logo-container img { height: 60px; }
 
-ul.header-menu  { margin: 0; margin-left: auto; padding: 0; }
+ul.header-menu  { margin: 0; margin-left: auto; padding: 0; padding-left: 16px; }
 .header-menu li { display: inline-block; margin-right: 24px; margin-bottom: 0; }
-.header-menu a { position: relative; text-transform: uppercase; font-size: 15px; color: var( --menu-text-color); text-decoration: none; font-weight: 500; }
+.header-menu a { position: relative; font-size: 15px; color: var( --menu-text-color); text-decoration: none; font-weight: 500; }
 .header-menu a:before { position: absolute; content: ''; width: 0; height: 0; background: var( --menu-text-color); opacity: 0; bottom: -8px; }
 .header-menu a:hover:before { transition: all 0.3s linear; height: 4px; width: 100%; opacity: 1; }
 
@@ -238,7 +238,7 @@ input[type="range"] { accent-color: var(--primary-color); }
     .js-main-menu-mobile-container { display: block; left: 0; z-index: 199; margin: 0; height: 100%; background: #ffffff; position: fixed; top: 60px; width: 100%; transform: translateX(-100%); transition: 0.3s ease-in-out all; }
     .js-main-menu-mobile-container.visible { transform: translateX(-0px); transition: 0.3s ease-in-out all; }
     .header-menu { margin: 0 !important; width: 100%; }
-    .header-menu ul { padding-left: 0; }
+    ul.header-menu { padding-left: 0; }
     .header-menu li { display: block; margin: 0; }
     .header-menu a { font-size: 20px; font-weight: 600;display: block;  padding: 12px 0; width: 100%; text-align: center; transition: 0.3s ease-in-out background; }
     .header-menu a:hover, .header-menu a:focus { background: #ececec; }

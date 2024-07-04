@@ -48,8 +48,8 @@ if (!function_exists('red_fLag_setup')) :
         add_theme_support(
             'custom-logo',
             array(
-                'height' => '150',
-                'width' => '150',
+                'height' => '118',
+                'width' => '300',
                 'flex-width' => false,
                 'flex-height' => false,
             )
