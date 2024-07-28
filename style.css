@@ -154,7 +154,7 @@ ul.header-menu  { margin: 0; margin-left: auto; padding: 0; padding-left: 16px; 
 .slider-section-slide { display: flex !important; flex-wrap: wrap;}
 .single-slider-section-item-container { width: 33.33%; margin-bottom: 30px; display: flex; justify-content: center; }
 .single-slider-section-item {display: flex; width: 100%; padding-left: 15px; padding-right: 15px; display: flex; justify-content: center; }
-.slider-item-image { flex-shrink: 0; height: 84px; width: 84px; border-radius: 16px; background-position: center; background-size: cover; background-color: white}
+.slider-item-image { flex-shrink: 0; height: 84px; width: 84px; border-radius: 16px; background-position: center; background-size: contain; background-repeat: no-repeat; background-color: white}
 /*.slider-section .slick-list { max-width: 1000px; margin: auto; }*/
 /*-- end logos slider section*/
 
