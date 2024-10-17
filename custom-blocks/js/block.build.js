@@ -238,6 +238,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__component_large_slider_large_slider__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__component_google_map__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__component_custom_hero_image__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__component_image_with_text_v1__ = __webpack_require__(9);
+
 
 
 
@@ -260,6 +262,7 @@ if (typeof JG === 'undefined') {
             Object(__WEBPACK_IMPORTED_MODULE_4__component_large_slider_large_slider__["a" /* default */])();
             Object(__WEBPACK_IMPORTED_MODULE_5__component_google_map__["a" /* default */])();
             Object(__WEBPACK_IMPORTED_MODULE_6__component_custom_hero_image__["a" /* default */])();
+            Object(__WEBPACK_IMPORTED_MODULE_7__component_image_with_text_v1__["a" /* default */])();
         }
     };
 })($);
@@ -760,7 +763,7 @@ var Fragment = wp.element.Fragment;
 "use strict";
 var registerBlockType = wp.blocks.registerBlockType;
 var _wp$blockEditor = wp.blockEditor,
-    InnerBlocks = _wp$blockEditor.InnerBlocks,
+    RichText = _wp$blockEditor.RichText,
     MediaUpload = _wp$blockEditor.MediaUpload;
 var Button = wp.components.Button;
 
@@ -778,13 +781,15 @@ var Button = wp.components.Button;
             imgId: {
                 type: 'number',
                 default: ''
+            },
+            text: {
+                type: 'string',
+                default: ''
             }
         },
 
         edit: function edit(properties) {
-            var _properties$attribute = properties.attributes,
-                description = _properties$attribute.description,
-                title = _properties$attribute.title;
+            var text = properties.attributes.text;
 
 
             var getImageButton = function getImageButton(openEvent) {
@@ -816,6 +821,94 @@ var Button = wp.components.Button;
                     'h3',
                     null,
                     'Custom hero image block'
+                ),
+                wp.element.createElement(MediaUpload, {
+                    onSelect: function onSelect(media) {
+                        properties.setAttributes({ imgUrl: media.url, imgId: media.id });
+                    },
+                    type: 'image',
+                    value: properties.attributes.imgUrl,
+                    render: function render(_ref) {
+                        var open = _ref.open;
+                        return getImageButton(open);
+                    }
+                }),
+                wp.element.createElement(RichText, {
+                    tagName: 'h2',
+                    placeholder: 'Text',
+                    value: text,
+                    onChange: function onChange(content) {
+                        return properties.setAttributes({ text: content });
+                    }
+                })
+            );
+        },
+
+        save: function save() {
+            return null;
+        }
+    });
+});
+
+/***/ }),
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var registerBlockType = wp.blocks.registerBlockType;
+var _wp$blockEditor = wp.blockEditor,
+    InnerBlocks = _wp$blockEditor.InnerBlocks,
+    MediaUpload = _wp$blockEditor.MediaUpload;
+var Button = wp.components.Button;
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+    registerBlockType('jg-blocks/image-with-text-v1', {
+        title: 'Image with text v1',
+        icon: '',
+        category: 'jg-blocks',
+        attributes: {
+            imgUrl: {
+                type: 'string',
+                default: ''
+            },
+            imgId: {
+                type: 'number',
+                default: ''
+            }
+        },
+
+        edit: function edit(properties) {
+
+            var getImageButton = function getImageButton(openEvent) {
+                if (properties.attributes.imgUrl) {
+                    return wp.element.createElement('img', {
+                        src: properties.attributes.imgUrl,
+                        onClick: openEvent,
+                        className: 'image'
+                    });
+                } else {
+                    return wp.element.createElement(
+                        'div',
+                        { className: 'button-container' },
+                        wp.element.createElement(
+                            Button,
+                            {
+                                onClick: openEvent,
+                                className: 'button button-large' },
+                            'Pick an image'
+                        )
+                    );
+                }
+            };
+
+            return wp.element.createElement(
+                'div',
+                { className: properties.className + '__container slider-section' },
+                wp.element.createElement(
+                    'h3',
+                    null,
+                    'Image block with text v1 block'
                 ),
                 wp.element.createElement(MediaUpload, {
                     onSelect: function onSelect(media) {

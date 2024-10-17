@@ -5,6 +5,7 @@ import PageHeader from "./component/page-header";
 import LargeSlider from "./component/large-slider/large-slider";
 import GoogleMap from "./component/google-map";
 import CustomHeroImage from "./component/custom-hero-image";
+import ImageWithTextV1 from "./component/image-with-text-v1";
 
 if (typeof (JG) === 'undefined') {
     var JG = {};
@@ -20,6 +21,7 @@ if (typeof (JG) === 'undefined') {
             LargeSlider();
             GoogleMap();
             CustomHeroImage();
+            ImageWithTextV1();
         },
     };
 })($);

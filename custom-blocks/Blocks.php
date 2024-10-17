@@ -90,6 +90,12 @@ function register_red_flag_blocks() {
         'editor_script' => 'jg-blocks',
         'render_callback' => ['Renderer', 'CustomHeroImage']
     ]);
+
+    register_block_type ('jg-blocks/image-with-text-v1', [
+        'editor_style' => 'jg-blocks',
+        'editor_script' => 'jg-blocks',
+        'render_callback' => ['Renderer', 'ImageWithTextV1']
+    ]);
 }
 add_action( 'init', 'register_red_flag_blocks' );
 

@@ -10,13 +10,7 @@
     <link rel="profile" href="https://gmpg.org/xfn/11"/>
     <?php
     wp_head();
-    $socials = pods('socials');
     $themeSettings = pods('theme_settings');
-    $facebook = $socials->field('facebook');
-    $twitter = $socials->field('twitter');
-    $linkedin = $socials->field('linkedin');
-    $instagram = $socials->field('instagram');
-    $youtube = $socials->field('youtube');
     ?>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -139,54 +133,7 @@
                 </button>
             </div>
             <?php
-            if ($facebook != '' || $twitter != '' || $linkedin != '' || $instagram != '' || $youtube != '') {
-                ?>
-                <div class="socials">
-                    <?php
-                    if ($facebook != '') {
-                        ?>
-                        <a class="facebook social-icon"
-                           target="_blank"
-                           href="<?php echo $facebook; ?>">
-                        </a>
-                        <?php
-                    }
-                    if ($twitter != '') {
-                        ?>
-                        <a class="twitter social-icon"
-                           target="_blank"
-                           href="<?php echo $twitter; ?>">
-                        </a>
-                        <?php
-                    }
-                    if ($linkedin != '') {
-                        ?>
-                        <a class="linkedin social-icon"
-                           target="_blank"
-                           href="<?php echo $linkedin; ?>">
-                        </a>
-                        <?php
-                    }
-                    if ($instagram != '') {
-                        ?>
-                        <a class="instagram social-icon"
-                           target="_blank"
-                           href="<?php echo $instagram; ?>">
-                        </a>
-                        <?php
-                    }
-                    if ($youtube != '') {
-                        ?>
-                        <a class="youtube social-icon"
-                           target="_blank"
-                           href="<?php echo $youtube; ?>">
-                        </a>
-                        <?php
-                    }
-                    ?>
-                </div>
-                <?php
-            }
+            include('parts/socials.php');
             ?>
         </div>
     </div>

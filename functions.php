@@ -26,6 +26,7 @@ if (!function_exists('red_fLag_setup')) :
             array(
                 'primary' => __('Primary', 'red_fLag'),
                 'footer' => __('Footer Menu', 'red_fLag'),
+                'footer_secondary' => __('Footer Secondary Menu', 'red_fLag'),
             )
         );
 
@@ -250,8 +251,8 @@ function register_red_flag_pods_config()
     pods_register_type($pod['type'], $pod['name'], $pod);
 
     $group = [
-        'name' => 'details',
-        'label' => 'Details',
+        'name' => 'socials',
+        'label' => 'Socials',
         'description' => '',
         'weight' => 0,
     ];
@@ -317,8 +318,8 @@ function register_red_flag_pods_config()
     pods_register_type($pod['type'], $pod['name'], $pod);
 
     $group = [
-        'name' => 'details',
-        'label' => 'Details',
+        'name' => 'theme_settings',
+        'label' => 'Theme settings',
         'description' => '',
         'weight' => 0,
     ];
@@ -338,9 +339,17 @@ function register_red_flag_pods_config()
             'weight' => 0,
             'type' => 'email',
         ],
-        'footer_content' => [
-            'name' => 'footer_content',
-            'label' => 'Footer content',
+        'footer_content_left' => [
+            'name' => 'footer_content_left',
+            'label' => 'Footer content left',
+            'description' => '',
+            'weight' => 0,
+            'type' => 'wysiwyg',
+            'wysiwyg_editor' => 'tinymce',
+        ],
+        'footer_content_right' => [
+            'name' => 'footer_content_right',
+            'label' => 'Footer content right',
             'description' => '',
             'weight' => 0,
             'type' => 'wysiwyg',

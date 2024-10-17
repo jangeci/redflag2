@@ -1,10 +1,10 @@
 const {registerBlockType} = wp.blocks;
-const {RichText, MediaUpload} = wp.blockEditor;
+const {InnerBlocks, MediaUpload} = wp.blockEditor;
 const {Button} = wp.components;
 
 export default () => {
-    registerBlockType('jg-blocks/custom-hero-image', {
-        title: 'Custom hero image block',
+    registerBlockType('jg-blocks/image-with-text-v1', {
+        title: 'Image with text v1',
         icon: '',
         category: 'jg-blocks',
         attributes: {
@@ -16,15 +16,9 @@ export default () => {
                 type: 'number',
                 default: ''
             },
-            text: {
-                type: 'string',
-                default: ''
-            },
         },
 
         edit: (properties) => {
-            const {text} = properties.attributes;
-
 
             const getImageButton = (openEvent) => {
                 if (properties.attributes.imgUrl) {
@@ -49,7 +43,7 @@ export default () => {
             };
 
             return <div className={`${properties.className}__container slider-section`}>
-                <h3>Custom hero image block</h3>
+                <h3>Image block with text v1 block</h3>
                 <MediaUpload
                     onSelect={media => {
                         properties.setAttributes({imgUrl: media.url, imgId: media.id});
@@ -58,17 +52,14 @@ export default () => {
                     value={properties.attributes.imgUrl}
                     render={({open}) => getImageButton(open)}
                 />
-                <RichText
-                    tagName="h2"
-                    placeholder="Text"
-                    value={text}
-                    onChange={(content) => properties.setAttributes({text: content})}
-                />
+                <InnerBlocks
+                    allowedBlocks={['core/paragraph', 'core/heading', 'core/navigation-link', 'core/button']}
+                    template={['core/paragraph']}/>
             </div>
         },
 
         save: () => {
-            return null;
+            return <InnerBlocks.Content/>;
         }
     });
 };

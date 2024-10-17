@@ -9,7 +9,15 @@
 <footer id="colophon" class="site-footer">
     <?php
     $themeSettings = pods('theme_settings');
-    $footerLeftContent = $themeSettings->field('footer_left_content');
+    $footerLeftContent = $themeSettings->field('footer_content_left');
+    $footerRightContent = $themeSettings->field('footer_content_right');
+    $socials = pods('socials');
+    $themeSettings = pods('theme_settings');
+    $facebook = $socials->field('facebook');
+    $twitter = $socials->field('twitter');
+    $linkedin = $socials->field('linkedin');
+    $instagram = $socials->field('instagram');
+    $youtube = $socials->field('youtube');
     ?>
 
     <div class="footer-most-recent-section">
@@ -61,33 +69,53 @@
     ?>
 
     <div class="footer-bg">
-        <div class="footer-bg-top">
-            <div class="container">
-
-            </div>
-        </div>
-
-        <div class="footer-bottom-content">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-content-left-container">
-                        <div class="left-background"></div>
-                        <div class="footer-content-left-inner">
-                            <?php if ($footerLeftContent) {
-                                echo wpautop($footerLeftContent, true);
-                            } ?>
-                        </div>
+        <div class="container">
+            <div class="row footer-row">
+                <div class="footer-content-left-container">
+                    <div class="footer-logo-container">
+                        <?php
+                        if (function_exists('the_custom_logo')) {
+                            the_custom_logo();
+                        }
+                        ?>
                     </div>
-                    <div class="footer-content-right-container">
-                        <div class="footer-right-top-section">
-                            <div class="footer-top-branch first">
+                    <?php if ($footerLeftContent) {
+                        echo wpautop($footerLeftContent, true);
+                    } ?>
+                </div>
+                <div class="footer-horizontal-space"></div>
+                <div class="footer-content-right-container">
+                    <?php
+                    include('parts/socials.php');
+                    ?>
+                    <div class="footer-right-top-section">
+                        <?php if ($footerLeftContent) {
+                            echo wpautop($footerRightContent, true);
+                        } ?>
 
-                            </div>
-                        </div>
+                        <div class="footer-decoration"></div>
                     </div>
+
+                    <?php
+                    wp_nav_menu(
+                        [
+                            'theme_location' => 'footer',
+                            'menu_class' => 'footer-menu',
+                        ]
+                    );
+                    ?>
+                    <?php
+                    wp_nav_menu(
+                        [
+                            'theme_location' => 'footer_secondary',
+                            'menu_class' => 'footer-secondary-menu',
+                        ]
+                    );
+                    ?>
                 </div>
             </div>
         </div>
+
     </div>
 </footer><!-- #colophon -->
 </div><!-- #page -->

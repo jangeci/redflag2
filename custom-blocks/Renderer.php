@@ -185,14 +185,39 @@ class Renderer
         return $html;
     }
 
-    static function CustomHeroImage($attributes, $content)
+    static function CustomHeroImage($attributes)
     {
 
         $html = '</div>';
         $html .= '<div class="custom-hero-image" style="background-image: url(' . wp_get_attachment_url($attributes['imgId']) . ')">';
         $html .= '<div class="container">';
+        $html .= '<div class="row">';
         $html .= '<div class="custom-hero-image-content">';
+        if (isset($attributes['text'])) {
+            $html .= '<h2>' . $attributes['text'] . '</h2>';
+        }
+        $html .= '</div>';
+        $html .= '</div>';
+        $html .= '</div>';
+        $html .= '</div>';
+        $html .= '<div class="container">';
+
+        return $html;
+    }
+
+
+    static function ImageWithTextV1($attributes, $content)
+    {
+        $html = '</div>';
+        $html .= '<div class="image-with-text-v1">';
+        $html .= '<div class="container">';
+        $html .= '<div class="row">';
+        $html .= '<div class="left-part">';
+        $html .= '<img srcw="' . wp_get_attachment_url($attributes['imgId']) . '">';
+        $html .= '</div>';
+        $html .= '<div class="right-part">';
         $html .= $content;
+        $html .= '</div>';
         $html .= '</div>';
         $html .= '</div>';
         $html .= '</div>';
