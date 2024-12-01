@@ -18,54 +18,55 @@
     $linkedin = $socials->field('linkedin');
     $instagram = $socials->field('instagram');
     $youtube = $socials->field('youtube');
+    /*
     ?>
 
     <div class="footer-most-recent-section">
         <div class="container">
             <div class="row">
                 <?php
-                /*
 
-            $most_recent = array(
-                'post_type' => 'post',
-                'post_status' => 'publish',
-                'posts_per_page' => 3,
-                'order' => 'DESC',
-                'orderby' => 'date',
-            );
 
-            $most_recent_query = new WP_Query($most_recent);
+                $most_recent = array(
+                    'post_type' => 'post',
+                    'post_status' => 'publish',
+                    'posts_per_page' => 3,
+                    'order' => 'DESC',
+                    'orderby' => 'date',
+                );
 
-            if ($most_recent_query->have_posts()) {
-                while ($most_recent_query->have_posts()) {
-                    $most_recent_query->the_post();
-                    ?>
-                    <div class="footer-posts-single-col">
-                        <div data-aos="flip-down"
-                             data-aos-duration="500"
-                             data-aos-easing="ease-in"
-                        >
-                            <a class="single-post-tile single-post-tile-medium variant2"
-                               href="<?php echo get_permalink(); ?>">
-                                <div class="single-post-tile-inner"
-                                     style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')">
-                                </div>
-                                <div class="post-tile-title-container">
-                                    <h3 class="post-tile-title"><?php //echo get_the_title(); ?>
-                                </div>
-                            </a>
+                $most_recent_query = new WP_Query($most_recent);
+
+                if ($most_recent_query->have_posts()) {
+                    while ($most_recent_query->have_posts()) {
+                        $most_recent_query->the_post();
+                        ?>
+                        <div class="footer-posts-single-col">
+                            <div data-aos="flip-down"
+                                 data-aos-duration="500"
+                                 data-aos-easing="ease-in"
+                            >
+                                <a class="single-post-tile single-post-tile-medium variant2"
+                                   href="<?php echo get_permalink(); ?>">
+                                    <div class="single-post-tile-inner"
+                                         style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')">
+                                    </div>
+                                    <div class="post-tile-title-container">
+                                        <h3 class="post-tile-title"><?php //echo get_the_title(); ?>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <?php
+                        <?php
+                    }
                 }
-            }
-            wp_reset_postdata();
-          */ ?>
+                wp_reset_postdata();
+                ?>
             </div>
         </div>
     </div>
     <?php
-
+*/
     ?>
 
     <div class="footer-bg">
