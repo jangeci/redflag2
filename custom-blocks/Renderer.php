@@ -214,7 +214,7 @@ class Renderer
         $html .= '<div class="container">';
         $html .= '<div class="row">';
         $html .= '<div class="left-part">';
-        $html .= '<img srcw="' . wp_get_attachment_url($attributes['imgId']) . '">';
+        $html .= '<img src="' . wp_get_attachment_url($attributes['imgId']) . '">';
         $html .= '</div>';
         $html .= '<div class="right-part">';
         $html .= $content;
