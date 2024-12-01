@@ -182,20 +182,21 @@ if (jQuery('.slider-section-slider').length) {
     });
 }
 
-
 if (jQuery('.large-slider').length) {
     let sliders = jQuery('.large-slider');
 
     sliders.each(function () {
         let singleSlider = jQuery(this);
         singleSlider.slick({
+            dots: true,
+            arrows: false,
+            cssEase: 'linear',
             infinite: true,
-            speed: 2500,
+            speed: 1500,
             slidesToShow: 1,
-            autoplay: true,
+            slidesToScroll: 1,
+            autoplay: false,
             fade: true,
-            prevArrow: '<button type="button" className="slick-prev"></button>',
-            nextArrow: '<button type="button" className="slick-next"></button>'
         });
     });
 }

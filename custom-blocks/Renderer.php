@@ -124,12 +124,8 @@ class Renderer
 
         $html = '</div>';
         $html .= '<div class="large-slider-container">';
-        $html .= '<div class="container">';
-        $html .= '<div class="row">';
         $html .= '<div class="large-slider">';
         $html .= $content;
-        $html .= '</div>';
-        $html .= '</div>';
         $html .= '</div>';
         $html .= '</div>';
         $html .= '<div class="container">';
@@ -141,8 +137,14 @@ class Renderer
     {
 
         $html = '<div class="large-slider-single-item" style="background-image: url(' . wp_get_attachment_url($attributes['imgId']) . ')">';
+        $html .= '<div class="large-slider-single-item-inner">';
+        $html .= '<div class="large-slider-gradient">';
+        $html .= '<div class="container">';
         $html .= '<div class="large-slider-single-item-content">';
         $html .= $content;
+        $html .= '</div>';
+        $html .= '</div>';
+        $html .= '</div>';
         $html .= '</div>';
         $html .= '</div>';
 
@@ -204,7 +206,6 @@ class Renderer
 
         return $html;
     }
-
 
     static function ImageWithTextV1($attributes, $content)
     {
