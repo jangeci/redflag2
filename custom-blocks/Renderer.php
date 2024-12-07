@@ -101,7 +101,7 @@ class Renderer
     static function PageHeader($attributes)
     {
         $html = '</div>';
-        $html .= '<div class="single-page-header">';
+        $html .= '<div class="single-page-header '.(array_key_exists('description', $attributes) ? "has-description" : "no-description").'">';
         $html .= '<div class="container">';
         $html .= '<div class="page-header-title">';
         $html .= '<h1>';
