@@ -95,12 +95,12 @@
                         <div class="footer-right-bottom-section">
                             <div class="one-third">
                                 <div class="footer-bottom-branch">
-                                    <strong>Partizánske<br><a href="tel:+421944247545">+421 944 247 545</a></strong>
+                                    <strong>Partizánske<br><a href="tel:+421948552102">+421 948 552 102</a></strong>
                                 </div>
                             </div>
                             <div class="one-third">
                                 <div class="footer-bottom-branch second">
-                                    <strong>Kežmarok<br><a href="tel:+421905984092">+421 905 984 092</a></strong>
+                                    <strong>Kežmarok<br><a href="tel:+421944247545">+421 944 247 545</a></strong>
                                 </div>
                             </div>
                             <div class="one-third">
