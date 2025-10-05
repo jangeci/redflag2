@@ -6,7 +6,7 @@ const {registerBlockType} = wp.blocks;
 export default () => {
     registerBlockType('jg-blocks/home-featured-posts', {
         title: 'Home featured posts',
-        category: 'jg-blocks',
+        category: 'jg-blockås',
         attributes: {
             singlePost1: {
                 number: ''

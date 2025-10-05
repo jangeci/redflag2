@@ -85,7 +85,6 @@ class Renderer
     {
         $html = '</div>';
         $html .= '<div class="slider-section">';
-        $html .= '<div class="slider-section-top-decoration"></div>';
         $html .= '<div class="container">';
         $html .= '<div class="slider-section-slider">';
         $html .= $content;
@@ -140,6 +139,9 @@ class Renderer
         $html .= '<div class="large-slider-single-item-inner">';
         $html .= '<div class="large-slider-gradient">';
         $html .= '<div class="container">';
+        $html .= '<div class="large-slider-left-content">';
+        $html .= '<img src="'. wp_get_attachment_url($attributes['imgId2']) .'"/>';
+        $html .= '</div>';
         $html .= '<div class="large-slider-single-item-content">';
         $html .= $content;
         $html .= '</div>';

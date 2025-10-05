@@ -286,7 +286,7 @@ var registerBlockType = wp.blocks.registerBlockType;
 /* harmony default export */ __webpack_exports__["a"] = (function () {
     registerBlockType('jg-blocks/home-featured-posts', {
         title: 'Home featured posts',
-        category: 'jg-blocks',
+        category: 'jg-blockås',
         attributes: {
             singlePost1: {
                 number: ''
@@ -402,7 +402,8 @@ var Button = wp.components.Button;
                 ),
                 wp.element.createElement(InnerBlocks, {
                     allowedBlocks: ['jg-blocks/slider-section-item'],
-                    template: [['jg-blocks/slider-section-item'], ['jg-blocks/slider-section-item'], ['jg-blocks/slider-section-item']] })
+                    template: [['jg-blocks/slider-section-item'], ['jg-blocks/slider-section-item'], ['jg-blocks/slider-section-item']],
+                    templateLock: false })
             );
         },
 
@@ -416,7 +417,7 @@ var Button = wp.components.Button;
         title: 'Slide section item',
         icon: '',
         category: 'jg-blocks',
-        parent: ['jg-blocks/slider-section-single-slide'],
+        parent: ['jg-blocks/slider-section'],
         attributes: {
             imgUrl: {
                 type: 'string',
@@ -575,17 +576,25 @@ var Button = wp.components.Button;
             imgId: {
                 type: 'number',
                 default: ''
+            },
+            imgUrl2: {
+                type: 'string',
+                default: ''
+            },
+            imgId2: {
+                type: 'number',
+                default: ''
             }
         },
 
         edit: function edit(properties) {
-            var getImageButton = function getImageButton(openEvent) {
+            var getImageButton = function getImageButton(open) {
                 if (properties.attributes.imgUrl) {
-                    return wp.element.createElement('img', {
-                        src: properties.attributes.imgUrl,
-                        onClick: openEvent,
-                        className: 'image'
-                    });
+                    return wp.element.createElement(
+                        'div',
+                        { className: 'image-wrapper', onClick: open },
+                        wp.element.createElement('img', { src: properties.attributes.imgUrl, className: 'image' })
+                    );
                 } else {
                     return wp.element.createElement(
                         'div',
@@ -593,9 +602,31 @@ var Button = wp.components.Button;
                         wp.element.createElement(
                             Button,
                             {
-                                onClick: openEvent,
+                                onClick: open,
                                 className: 'button button-large' },
                             'Pick an image'
+                        )
+                    );
+                }
+            };
+
+            var getImageButton2 = function getImageButton2(open) {
+                if (properties.attributes.imgUrl2) {
+                    return wp.element.createElement(
+                        'div',
+                        { className: 'image-wrapper', onClick: open },
+                        wp.element.createElement('img', { src: properties.attributes.imgUrl2, className: 'image' })
+                    );
+                } else {
+                    return wp.element.createElement(
+                        'div',
+                        { className: 'button-container' },
+                        wp.element.createElement(
+                            Button,
+                            {
+                                onClick: open,
+                                className: 'button button-large' },
+                            'Pick decoration image'
                         )
                     );
                 }
@@ -617,11 +648,20 @@ var Button = wp.components.Button;
                     onSelect: function onSelect(media) {
                         properties.setAttributes({ imgUrl: media.url, imgId: media.id });
                     },
-                    type: 'image',
                     value: properties.attributes.imgUrl,
                     render: function render(_ref) {
                         var open = _ref.open;
                         return getImageButton(open);
+                    }
+                }),
+                wp.element.createElement(MediaUpload, {
+                    onSelect: function onSelect(media) {
+                        properties.setAttributes({ imgUrl2: media.url, imgId2: media.id });
+                    },
+                    value: properties.attributes.imgUrl2,
+                    render: function render(_ref2) {
+                        var open = _ref2.open;
+                        return getImageButton2(open);
                     }
                 })
             );

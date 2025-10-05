@@ -1,6 +1,6 @@
-const { registerBlockType } = wp.blocks;
-const { InnerBlocks, MediaUpload } = wp.blockEditor;
-const { Button } = wp.components;
+const {registerBlockType} = wp.blocks;
+const {InnerBlocks, MediaUpload} = wp.blockEditor;
+const {Button} = wp.components;
 
 export default () => {
     registerBlockType('jg-blocks/large-slider', {
@@ -41,25 +41,51 @@ export default () => {
                 type: 'number',
                 default: ''
             },
+            imgUrl2: {
+                type: 'string',
+                default: ''
+            },
+            imgId2: {
+                type: 'number',
+                default: ''
+            },
         },
 
         edit: (properties) => {
-            const getImageButton = (openEvent) => {
+            const getImageButton = (open) => {
                 if (properties.attributes.imgUrl) {
                     return (
-                        <img
-                            src={properties.attributes.imgUrl}
-                            onClick={openEvent}
-                            className="image"
-                        />
+                        <div className="image-wrapper" onClick={open}>
+                            <img src={properties.attributes.imgUrl} className="image" />
+                        </div>
                     );
                 } else {
                     return (
                         <div className="button-container">
                             <Button
-                                onClick={openEvent}
+                                onClick={open}
                                 className="button button-large">
                                 Pick an image
+                            </Button>
+                        </div>
+                    );
+                }
+            };
+
+            const getImageButton2 = (open) => {
+                if (properties.attributes.imgUrl2) {
+                    return (
+                        <div className="image-wrapper" onClick={open}>
+                            <img src={properties.attributes.imgUrl2} className="image" />
+                        </div>
+                    );
+                } else {
+                    return (
+                        <div className="button-container">
+                            <Button
+                                onClick={open}
+                                className="button button-large">
+                                Pick decoration image
                             </Button>
                         </div>
                     );
@@ -76,9 +102,15 @@ export default () => {
                     onSelect={media => {
                         properties.setAttributes({imgUrl: media.url, imgId: media.id});
                     }}
-                    type="image"
                     value={properties.attributes.imgUrl}
                     render={({open}) => getImageButton(open)}
+                />
+                <MediaUpload
+                    onSelect={media => {
+                        properties.setAttributes({imgUrl2: media.url, imgId2: media.id});
+                    }}
+                    value={properties.attributes.imgUrl2}
+                    render={({open}) => getImageButton2(open)}
                 />
             </div>
         },

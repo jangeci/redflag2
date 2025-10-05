@@ -17,7 +17,8 @@ export default () => {
                         ['jg-blocks/slider-section-item'],
                         ['jg-blocks/slider-section-item'],
                         ['jg-blocks/slider-section-item']
-                    ]}/>
+                    ]}
+                    templateLock={false}/>
             </div>
         },
 
@@ -31,7 +32,7 @@ export default () => {
         title: 'Slide section item',
         icon: '',
         category: 'jg-blocks',
-        parent: ['jg-blocks/slider-section-single-slide'],
+        parent: ['jg-blocks/slider-section'],
         attributes: {
             imgUrl: {
                 type: 'string',

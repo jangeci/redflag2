@@ -7,7 +7,7 @@ Text Domain: redFlag
 */
 
 :root {
-    --primary-color: #38b449;
+    --primary-color: #99cc33;
     --primary-color-hover: #1ba42e;
     --menu-text-color: #333333;
     --text-color-on-primary-color: #fff;
@@ -130,7 +130,7 @@ ul.header-menu  { margin: 0; margin-left: auto; padding: 0; padding-left: 16px; 
 
 
 /*-- start logos slider section*/
-.slider-section { padding-bottom: 18px; margin-bottom: 60px; background: white; box-shadow: 0 2px 40px lightgray; }
+.slider-section { padding-top: 46px; padding-bottom: 18px; margin-bottom: 60px; background: white; }
 .slider-section-top-decoration { background: var( --menu-text-color);  height: 140px; width: 100%; margin-bottom: 46px; position: relative; }
 .slider-section h2 {text-align: center; color: white; font-size: 30px; margin: 0; margin-bottom: 60px; }
 .slider-section .slick-arrow {  display: none !important; }
@@ -243,6 +243,7 @@ input[type="range"] { accent-color: var(--primary-color); }
 .large-slider-single-item { background-position: center; background-size: cover; }
 .large-slider-single-item-inner { display: flex; align-items: center; height: calc(100vh - 80px); width: 100%; }
 .large-slider-gradient { margin: auto 0; width: 100%; background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.9)); display: flex; min-height: 50vh; padding: 40px 0; }
+.large-slider-single-item-inner .container{ display: flex; }
 .large-slider-single-item-content { width: 50%; height: 100%; margin-left: auto; display: flex; flex-direction: column; justify-content: center; align-content: start; }
 .large-slider-single-item-content a { transition: 0.3s background-color linear; color: var(--text-color-on-primary-color); text-decoration: none; display: flex; width: fit-content; align-items: center; justify-content: center; border-radius: 10px; height: 60px; background-color: var(--primary-color); padding: 0 24px; }
 .large-slider-single-item-content a:hover { background-color: var(--primary-color-hover); }
@@ -250,6 +251,7 @@ input[type="range"] { accent-color: var(--primary-color); }
 .large-slider-single-item-content p { font-size: 20px; font-weight: 500; }
 
 @media (max-width: 991px) {
+    .large-slider-single-item-inner .container img { display: none; }
     .large-slider-single-item-content { width: 100%; }
 }
 @media (max-width: 767px) {
