@@ -115,7 +115,7 @@
                             </div>
                             <div class="one-third">
                                 <div class="footer-bottom-branch third">
-                                    <strong>Trenčín<br><a href="tel:+421911112442">+421 911 112 442</a></strong>
+                                    <strong>Trenčín, Žilina<br><a href="tel:+421911112442">+421 911 112 442</a></strong>
                                 </div>
                             </div>
                         </div>
