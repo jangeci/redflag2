@@ -96,6 +96,12 @@ function register_red_flag_blocks() {
         'editor_script' => 'jg-blocks',
         'render_callback' => ['Renderer', 'ImageWithTextV1']
     ]);
+    
+    register_block_type ('jg-blocks/block-with-background', [
+        'editor_style' => 'jg-blocks',
+        'editor_script' => 'jg-blocks',
+        'render_callback' => ['Renderer', 'BlockWithBackground']
+    ]);
 }
 add_action( 'init', 'register_red_flag_blocks' );
 

@@ -239,6 +239,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__component_google_map__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__component_custom_hero_image__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__component_image_with_text_v1__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__component_block_with_background__ = __webpack_require__(10);
+
 
 
 
@@ -263,6 +265,7 @@ if (typeof JG === 'undefined') {
             Object(__WEBPACK_IMPORTED_MODULE_5__component_google_map__["a" /* default */])();
             Object(__WEBPACK_IMPORTED_MODULE_6__component_custom_hero_image__["a" /* default */])();
             Object(__WEBPACK_IMPORTED_MODULE_7__component_image_with_text_v1__["a" /* default */])();
+            Object(__WEBPACK_IMPORTED_MODULE_8__component_block_with_background__["a" /* default */])();
         }
     };
 })($);
@@ -964,6 +967,49 @@ var Button = wp.components.Button;
                 wp.element.createElement(InnerBlocks, {
                     allowedBlocks: ['core/paragraph', 'core/heading', 'core/navigation-link', 'core/button'],
                     template: ['core/paragraph'] })
+            );
+        },
+
+        save: function save() {
+            return wp.element.createElement(InnerBlocks.Content, null);
+        }
+    });
+});
+
+/***/ }),
+/* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var registerBlockType = wp.blocks.registerBlockType;
+var InnerBlocks = wp.blockEditor.InnerBlocks;
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+    registerBlockType('jg-blocks/block-with-background', {
+        title: 'Block With Background',
+        icon: '',
+        category: 'jg-blocks',
+        supports: {
+            "customClassName": true
+        },
+        attributes: {
+            className: {
+                type: 'string',
+                default: ''
+            }
+        },
+
+        edit: function edit(properties) {
+            return wp.element.createElement(
+                'div',
+                { className: properties.className + ' block-with-background' },
+                wp.element.createElement(
+                    'h3',
+                    null,
+                    'Block with background'
+                ),
+                wp.element.createElement(InnerBlocks, null)
             );
         },
 

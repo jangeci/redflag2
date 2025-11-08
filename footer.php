@@ -18,21 +18,19 @@
     $linkedin = $socials->field('linkedin');
     $instagram = $socials->field('instagram');
     $youtube = $socials->field('youtube');
-    /*
-    ?>
 
+    ?>
     <div class="footer-most-recent-section">
         <div class="container">
             <div class="row">
                 <?php
 
-
                 $most_recent = array(
-                    'post_type' => 'post',
-                    'post_status' => 'publish',
-                    'posts_per_page' => 3,
-                    'order' => 'DESC',
-                    'orderby' => 'date',
+                        'post_type' => 'post',
+                        'post_status' => 'publish',
+                        'posts_per_page' => 3,
+                        'order' => 'DESC',
+                        'orderby' => 'date',
                 );
 
                 $most_recent_query = new WP_Query($most_recent);
@@ -52,7 +50,7 @@
                                          style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')">
                                     </div>
                                     <div class="post-tile-title-container">
-                                        <h3 class="post-tile-title"><?php //echo get_the_title(); ?>
+                                        <h3 class="post-tile-title"><?php echo get_the_title(); ?>
                                     </div>
                                 </a>
                             </div>
@@ -65,20 +63,13 @@
             </div>
         </div>
     </div>
-    <?php
-*/
-    ?>
 
     <div class="footer-bg">
         <div class="container">
             <div class="row footer-row">
                 <div class="footer-content-left-container">
                     <div class="footer-logo-container">
-                        <?php
-                        if (function_exists('the_custom_logo')) {
-                            the_custom_logo();
-                        }
-                        ?>
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/footer-logo.png" alt="Logo"/>
                     </div>
                     <?php if ($footerLeftContent) {
                         echo wpautop($footerLeftContent, true);
@@ -86,33 +77,80 @@
                 </div>
                 <div class="footer-horizontal-space"></div>
                 <div class="footer-content-right-container">
-                    <?php
-                    include('parts/socials.php');
-                    ?>
+<!--                    --><?php
+//                    include('parts/socials.php');
+//                    ?>
                     <div class="footer-right-top-section">
-                        <?php if ($footerLeftContent) {
-                            echo wpautop($footerRightContent, true);
-                        } ?>
-
-                        <div class="footer-decoration"></div>
+                        <div class="one-half">
+                            <div class="footer-bottom-branch">
+                                <p>
+                                    Tel:
+                                    <strong>
+                                        <br><a href="tel:+421900000000">+421 911 112 442</a>
+                                        <br><a href="tel:+421900000000">+421 911 112 442</a>
+                                    </strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="one-half">
+                            <div class="footer-bottom-branch second">
+                                <p>
+                                    Socials:
+                                    <br>
+                                    <strong>
+                                        <a href="https://www.ecoportal.site" target="_blank">fb: ecoportal.site</a>
+                                        <br>
+                                        <a href="https://www.ecoportal.site" target="_blank">insta: ecoportal.site</a>
+                                    </strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="one-half">
+                            <div class="footer-bottom-branch third">
+                                <p>
+                                    Adresa:
+                                    <br>
+                                    <strong>
+                                        Lorem ipsum 19,
+                                        <br>
+                                        dolor sit amet, lorem
+                                    </strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="one-half">
+                            <div class="footer-bottom-branch third">
+                                <p>
+                                    Friends:
+                                    <br>
+                                    <strong>
+                                        <a target="_blank" href="https://www.solarmajster.sk">www.solarmajster.sk</a>
+                                        <br><a target="_blank" href="https://www.tabeco.sk">www.tabeco.sk</a>
+                                        <br><a target="_blank" href="https://www.redflag.sk">redflag</a>
+                                    </strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="one-half">
+                            <div class="footer-bottom-branch third">
+                                <p>
+                                    Email:
+                                    <br>
+                                    <strong><a href="mailto:info@eco-portal.site">info@eco-portal.site</a></strong>
+                                    <br>
+                                    <strong><a href="mailto:obchod@eco-portal.site">obchod@eco-portal.site</a></strong>
+                                    <br>
+                                    <strong><a href="mailto:marketing@eco-portal.site">marketing@eco-portal.site</a></strong>
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                    <?php
-                    wp_nav_menu(
-                        [
-                            'theme_location' => 'footer',
-                            'menu_class' => 'footer-menu',
-                        ]
-                    );
-                    ?>
-                    <?php
-                    wp_nav_menu(
-                        [
-                            'theme_location' => 'footer_secondary',
-                            'menu_class' => 'footer-secondary-menu',
-                        ]
-                    );
-                    ?>
+                    <div class="footer-right-bottom-section">
+                        <?php if ($footerRightContent) {
+                            echo wpautop($footerRightContent, true);
+                        } ?>
+                    </div>
                 </div>
             </div>
         </div>

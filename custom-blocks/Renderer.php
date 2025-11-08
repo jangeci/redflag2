@@ -228,4 +228,19 @@ class Renderer
 
         return $html;
     }
+    static function BlockWithBackground($attributes, $content)
+    {
+        $className = isset($attributes['className']) ? $attributes['className'] : '';
+        
+        
+        $html = '</div>';
+        $html .= '<div class="block-with-background ' . esc_attr($className) . '">';
+        $html .= '<div class="container">';
+        $html .= $content;
+        $html .= '</div>';
+        $html .= '</div>';
+        $html .= '<div class="container">';
+
+        return $html;
+    }
 }
