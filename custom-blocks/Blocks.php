@@ -102,6 +102,12 @@ function register_red_flag_blocks() {
         'editor_script' => 'jg-blocks',
         'render_callback' => ['Renderer', 'BlockWithBackground']
     ]);
+    
+    register_block_type ('jg-blocks/partners-by-category', [
+        'editor_style' => 'jg-blocks',
+        'editor_script' => 'jg-blocks',
+        'render_callback' => ['Renderer', 'PartnersByCategory']
+    ]);
 }
 add_action( 'init', 'register_red_flag_blocks' );
 

@@ -190,9 +190,9 @@ ul.header-menu  { margin: 0; margin-left: auto; padding: 0; padding-left: 16px; 
 
 .single-page-header { position: relative; background-color: #e6e6e6; padding: 30px 0; margin-bottom: 50px; display: flex; align-items: center; }
 .single-page-header .container { margin-top: auto; margin-bottom: auto; }
-.page-header-title h1 { margin: 0 0 38px; color: black; font-size: 30px;}
-.no-description .page-header-title h1 { margin-bottom: 0; color: black; font-size: 30px;}
-.page-header-title p { color: black; margin: 0; }
+.page-header-title h1 { margin: 0 0 38px; color: var(--menu-text-color); font-size: 30px;}
+.no-description .page-header-title h1 { margin-bottom: 0; color: var(--menu-text-color); font-size: 30px;}
+.page-header-title p { color: var(--menu-text-color); margin: 0; }
 
 .wpcf7-form p { margin-bottom: 0; }
 .wpcf7-form .sliderDescription { margin-top: -16px; margin-bottom: 8px; }

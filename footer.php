@@ -86,8 +86,8 @@
                                 <p>
                                     Tel:
                                     <strong>
-                                        <br><a href="tel:+421900000000">+421 911 112 442</a>
-                                        <br><a href="tel:+421900000000">+421 911 112 442</a>
+                                        <br><a href="tel:+421910733507">+421 910 733 507</a>
+                                        <br><a href="tel:+421915479221">+421 915 479 221</a>
                                     </strong>
                                 </p>
                             </div>
@@ -111,9 +111,9 @@
                                     Adresa:
                                     <br>
                                     <strong>
-                                        Lorem ipsum 19,
+                                        Business centrum Chmelová
                                         <br>
-                                        dolor sit amet, lorem
+                                        Chmeľová dolina 27, Nitra
                                     </strong>
                                 </p>
                             </div>
@@ -124,9 +124,8 @@
                                     Friends:
                                     <br>
                                     <strong>
-                                        <a target="_blank" href="https://www.solarmajster.sk">www.solarmajster.sk</a>
-                                        <br><a target="_blank" href="https://www.tabeco.sk">www.tabeco.sk</a>
-                                        <br><a target="_blank" href="https://www.redflag.sk">redflag</a>
+                                        <a target="_blank" href="https://www.krr.sk">www.krr.sk</a>
+                                        <br><a target="_blank" href="https://www.narask.sk">www.narask.sk</a>
                                     </strong>
                                 </p>
                             </div>
@@ -139,8 +138,6 @@
                                     <strong><a href="mailto:info@eco-portal.site">info@eco-portal.site</a></strong>
                                     <br>
                                     <strong><a href="mailto:obchod@eco-portal.site">obchod@eco-portal.site</a></strong>
-                                    <br>
-                                    <strong><a href="mailto:marketing@eco-portal.site">marketing@eco-portal.site</a></strong>
                                 </p>
                             </div>
                         </div>

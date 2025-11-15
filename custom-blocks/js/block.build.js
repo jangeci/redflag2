@@ -240,6 +240,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__component_custom_hero_image__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__component_image_with_text_v1__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__component_block_with_background__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__component_partners_by_category__ = __webpack_require__(11);
+
 
 
 
@@ -266,6 +268,7 @@ if (typeof JG === 'undefined') {
             Object(__WEBPACK_IMPORTED_MODULE_6__component_custom_hero_image__["a" /* default */])();
             Object(__WEBPACK_IMPORTED_MODULE_7__component_image_with_text_v1__["a" /* default */])();
             Object(__WEBPACK_IMPORTED_MODULE_8__component_block_with_background__["a" /* default */])();
+            Object(__WEBPACK_IMPORTED_MODULE_9__component_partners_by_category__["a" /* default */])();
         }
     };
 })($);
@@ -917,19 +920,27 @@ var Button = wp.components.Button;
             },
             imgId: {
                 type: 'number',
-                default: ''
+                default: 0
             }
         },
 
         edit: function edit(properties) {
+            var attributes = properties.attributes,
+                setAttributes = properties.setAttributes;
+            var imgUrl = attributes.imgUrl,
+                imgId = attributes.imgId;
 
-            var getImageButton = function getImageButton(openEvent) {
-                if (properties.attributes.imgUrl) {
-                    return wp.element.createElement('img', {
-                        src: properties.attributes.imgUrl,
-                        onClick: openEvent,
-                        className: 'image'
-                    });
+
+            var getImageButton = function getImageButton(open) {
+                if (imgUrl) {
+                    return wp.element.createElement(
+                        'div',
+                        { className: 'image-wrapper', onClick: open },
+                        wp.element.createElement('img', {
+                            src: imgUrl,
+                            className: 'image'
+                        })
+                    );
                 } else {
                     return wp.element.createElement(
                         'div',
@@ -937,7 +948,7 @@ var Button = wp.components.Button;
                         wp.element.createElement(
                             Button,
                             {
-                                onClick: openEvent,
+                                onClick: open,
                                 className: 'button button-large' },
                             'Pick an image'
                         )
@@ -957,8 +968,8 @@ var Button = wp.components.Button;
                     onSelect: function onSelect(media) {
                         properties.setAttributes({ imgUrl: media.url, imgId: media.id });
                     },
-                    type: 'image',
-                    value: properties.attributes.imgUrl,
+                    allowedTypes: ['image'],
+                    value: imgId,
                     render: function render(_ref) {
                         var open = _ref.open;
                         return getImageButton(open);
@@ -966,7 +977,7 @@ var Button = wp.components.Button;
                 }),
                 wp.element.createElement(InnerBlocks, {
                     allowedBlocks: ['core/paragraph', 'core/heading', 'core/navigation-link', 'core/button'],
-                    template: ['core/paragraph'] })
+                    template: [['core/paragraph']] })
             );
         },
 
@@ -1015,6 +1026,38 @@ var InnerBlocks = wp.blockEditor.InnerBlocks;
 
         save: function save() {
             return wp.element.createElement(InnerBlocks.Content, null);
+        }
+    });
+});
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var registerBlockType = wp.blocks.registerBlockType;
+
+
+/* harmony default export */ __webpack_exports__["a"] = (function () {
+
+    registerBlockType('jg-blocks/partners-by-category', {
+        title: 'Partners list',
+        category: 'jg-blocks',
+        description: '',
+
+        edit: function edit(properties) {
+            return wp.element.createElement(
+                'div',
+                { className: properties.className + '__container my-block-editor-style' },
+                wp.element.createElement(
+                    'h3',
+                    null,
+                    'Partners list'
+                )
+            );
+        },
+        save: function save(properties) {
+            return null;
         }
     });
 });

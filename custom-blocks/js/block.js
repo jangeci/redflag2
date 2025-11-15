@@ -7,6 +7,7 @@ import GoogleMap from "./component/google-map";
 import CustomHeroImage from "./component/custom-hero-image";
 import ImageWithTextV1 from "./component/image-with-text-v1";
 import BlockWithBackground from "./component/block-with-background";
+import PartnersByCategory from "./component/partners-by-category";
 
 if (typeof (JG) === 'undefined') {
     var JG = {};
@@ -24,6 +25,7 @@ if (typeof (JG) === 'undefined') {
             CustomHeroImage();
             ImageWithTextV1();
             BlockWithBackground();
+            PartnersByCategory();
         },
     };
 })($);

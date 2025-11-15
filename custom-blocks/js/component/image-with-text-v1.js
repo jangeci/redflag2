@@ -14,26 +14,30 @@ export default () => {
             },
             imgId: {
                 type: 'number',
-                default: ''
+                default: 0
             },
         },
 
         edit: (properties) => {
+            const {attributes, setAttributes} = properties;
+            const {imgUrl, imgId} = attributes;
 
-            const getImageButton = (openEvent) => {
-                if (properties.attributes.imgUrl) {
+            const getImageButton = (open) => {
+                if (imgUrl) {
                     return (
-                        <img
-                            src={properties.attributes.imgUrl}
-                            onClick={openEvent}
-                            className="image"
-                        />
+                        <div className="image-wrapper" onClick={open}>
+                            <img
+                                src={imgUrl}
+                                className="image"
+                            />
+                        </div>
+
                     );
                 } else {
                     return (
                         <div className="button-container">
                             <Button
-                                onClick={openEvent}
+                                onClick={open}
                                 className="button button-large">
                                 Pick an image
                             </Button>
@@ -48,13 +52,13 @@ export default () => {
                     onSelect={media => {
                         properties.setAttributes({imgUrl: media.url, imgId: media.id});
                     }}
-                    type="image"
-                    value={properties.attributes.imgUrl}
+                    allowedTypes={['image']}
+                    value={imgId}
                     render={({open}) => getImageButton(open)}
                 />
                 <InnerBlocks
                     allowedBlocks={['core/paragraph', 'core/heading', 'core/navigation-link', 'core/button']}
-                    template={['core/paragraph']}/>
+                    template={[['core/paragraph']]}/>
             </div>
         },
 

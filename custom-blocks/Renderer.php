@@ -15,10 +15,10 @@ class Renderer
             $html .= '</div>';
             $html .= '</a>';
         }
-
+        
         return $html;
     }
-
+    
     static function HomeFeaturedPosts($attributes, $content)
     {
         $postsId = [];
@@ -28,8 +28,8 @@ class Renderer
         if (array_key_exists("singlePost2", $attributes)) {
             array_push($postsId, $attributes['singlePost2']);
         }
-
-
+        
+        
         $html = '</div>';
         $html .= '<div class="section-featured-posts-background">';
         $html .= '<div class="container">';
@@ -40,9 +40,9 @@ class Renderer
         $html .= $content;
         $html .= '</div>';
         $html .= '</div>';
-
+        
         $html .= '<div class="featured-posts-right-col">';
-
+        
         foreach ($postsId as $key => $id):
             $singlePost = get_post($id);
             $html .= '<a class="single-slide single-post-tile single-post-tile-medium index' . $key . '" href="' . get_permalink($id) . '">';
@@ -60,13 +60,13 @@ class Renderer
         $html .= '</div>';
         $html .= '</div>';
         $html .= '<div class="container">';
-
+        
         return $html;
     }
-
+    
     static function SliderSectionItem($attributes)
     {
-
+        
         if ($attributes['imgId']) {
             $html = '<div class="single-slider-section-item-container">';
             $html .= '<div class="single-slider-section-item">';
@@ -74,13 +74,13 @@ class Renderer
             $html .= '</div>';
             $html .= '</div>';
             $html .= '</div>';
-
+            
             return $html;
         }
-
+        
         return '';
     }
-
+    
     static function SliderSection($attributes, $content)
     {
         $html = '</div>';
@@ -93,14 +93,14 @@ class Renderer
         $html .= '</div>';
         $html .= '</div>';
         $html .= '<div class="container">';
-
+        
         return $html;
     }
-
+    
     static function PageHeader($attributes)
     {
         $html = '</div>';
-        $html .= '<div class="single-page-header '.(array_key_exists('description', $attributes) ? "has-description" : "no-description").'">';
+        $html .= '<div class="single-page-header ' . (array_key_exists('description', $attributes) ? "has-description" : "no-description") . '">';
         $html .= '<div class="container">';
         $html .= '<div class="page-header-title">';
         $html .= '<h1>';
@@ -114,13 +114,13 @@ class Renderer
         $html .= '</div>';
         $html .= '</div>';
         $html .= '<div class="container">';
-
+        
         return $html;
     }
-
+    
     static function LargeSlider($attributes, $content)
     {
-
+        
         $html = '</div>';
         $html .= '<div class="large-slider-container">';
         $html .= '<div class="large-slider">';
@@ -128,19 +128,19 @@ class Renderer
         $html .= '</div>';
         $html .= '</div>';
         $html .= '<div class="container">';
-
+        
         return $html;
     }
-
+    
     static function LargeSliderItem($attributes, $content)
     {
-
+        
         $html = '<div class="large-slider-single-item" style="background-image: url(' . wp_get_attachment_url($attributes['imgId']) . ')">';
         $html .= '<div class="large-slider-single-item-inner">';
         $html .= '<div class="large-slider-gradient">';
         $html .= '<div class="container">';
         $html .= '<div class="large-slider-left-content">';
-        $html .= '<img src="'. wp_get_attachment_url($attributes['imgId2']) .'"/>';
+        $html .= '<img src="' . wp_get_attachment_url($attributes['imgId2']) . '"/>';
         $html .= '</div>';
         $html .= '<div class="large-slider-single-item-content">';
         $html .= $content;
@@ -149,14 +149,14 @@ class Renderer
         $html .= '</div>';
         $html .= '</div>';
         $html .= '</div>';
-
+        
         return $html;
     }
-
+    
     static function GoogleMap($attributes)
     {
         $apiKey = 'AIzaSyDXEoEqvPGDVXnf-Guq2DUul_5vbyTj8P0';
-
+        
         $html = '';
         if (!is_admin()) {
             wp_enqueue_script('script-googlemaps', 'https://maps.googleapis.com/maps/api/js?key=' . $apiKey . '&callback=JG.RedFlag.GoogleMaps.InitMap', ['jquery'], '', true);
@@ -179,19 +179,19 @@ class Renderer
         $html .= '<div id="google-map-container" class="google-map-container">';
         $html .= '</div>';
         $html .= '</div>';
-
+        
         $html .= '<script>window.JG_Main_Map = {apiKey: \'' . $apiKey . '\', 
                 positionLat: \'' . $attributes ['positionLat'] . '\', positionLong: \'' . $attributes ['positionLong'] . '\',
                 pinLat: \'' . $attributes ['pinLat'] . '\', pinLong: \'' . $attributes ['pinLong'] . '\', target: \'google-map-container\'};';
         //        mapMarker: \'' . $attributes ['imgUrl'] . ' \'
         $html .= '</script>';
-
+        
         return $html;
     }
-
+    
     static function CustomHeroImage($attributes)
     {
-
+        
         $html = '</div>';
         $html .= '<div class="custom-hero-image" style="background-image: url(' . wp_get_attachment_url($attributes['imgId']) . ')">';
         $html .= '<div class="container">';
@@ -205,10 +205,10 @@ class Renderer
         $html .= '</div>';
         $html .= '</div>';
         $html .= '<div class="container">';
-
+        
         return $html;
     }
-
+    
     static function ImageWithTextV1($attributes, $content)
     {
         $html = '</div>';
@@ -225,9 +225,10 @@ class Renderer
         $html .= '</div>';
         $html .= '</div>';
         $html .= '<div class="container">';
-
+        
         return $html;
     }
+    
     static function BlockWithBackground($attributes, $content)
     {
         $className = isset($attributes['className']) ? $attributes['className'] : '';
@@ -240,7 +241,96 @@ class Renderer
         $html .= '</div>';
         $html .= '</div>';
         $html .= '<div class="container">';
-
+        
+        return $html;
+    }
+    
+    static function PartnersByCategory($attributes, $content)
+    {
+        $className = isset($attributes['className']) ? $attributes['className'] : '';
+        
+        $html = '<div class="partners-by-category-block ' . esc_attr($className) . '">';
+        $html .= '<div class="container">';
+        
+        $categories = get_terms([
+            'taxonomy' => 'partner_category',
+            'hide_empty' => true,
+            'orderby' => 'name',
+            'order' => 'ASC',
+        ]);
+        
+        if (!empty($categories) && !is_wp_error($categories)) {
+            foreach ($categories as $category) {
+//                $category_pod = pods('partner_category', $category->term_id);
+                
+                $html .= '<div class="container partner-category-section">';
+                $html .= '<div class="category-header">';
+                
+                $html .= '<h2 class="category-title">' . esc_html($category->name) . '</h2>';
+                $html .= '</div>';
+                
+                if ($category->description) {
+                    $html .= '<div class="category-description">' . wpautop($category->description) . '</div>';
+                }
+                
+                $args = [
+                    'post_type' => 'partners',
+                    'posts_per_page' => -1,
+                    'orderby' => 'title',
+                    'order' => 'ASC',
+                    'tax_query' => [
+                        [
+                            'taxonomy' => 'partner_category',
+                            'field' => 'term_id',
+                            'terms' => $category->term_id,
+                        ],
+                    ],
+                ];
+                
+                $partners = new WP_Query($args);
+                
+                if ($partners->have_posts()) {
+                    $html .= '<div class="partners-grid">';
+                    
+                    while ($partners->have_posts()) {
+                        $partners->the_post();
+                        $pod = pods('partners', get_the_ID());
+                        $logo = $pod->field('logo');
+                        $description = $pod->field('description');
+                        
+                        $html .= '<div class="partner-item">';
+                        
+                        if ($logo) {
+                            $html .= '<div class="partner-logo">';
+                            $html .= '<img src="' . esc_url($logo['guid']) . '" alt="' . esc_attr(get_the_title()) . '">';
+                            $html .= '</div>';
+                        }
+                        
+                        $html .= '<div class="partner-content">';
+                        
+                        $html .= '<h3>' . get_the_title() . '</h3>';
+                        
+                        if ($description) {
+                            $html .= '<div class="partner-description">' . wp_kses_post($description) . '</div>';
+                        }
+                        
+                        $html .= '<a href="' . esc_url(get_permalink(get_the_id())) . '" target="_blank" rel="noopener noreferrer" class="partner-link">Čítať viac</a>';
+                        
+                        $html .= '</div>';
+                        $html .= '</div>';
+                    }
+                    
+                    $html .= '</div>';
+                    wp_reset_postdata();
+                }
+                
+                $html .= '</div>';
+            }
+        }
+        
+        $html .= '</div>';
+        $html .= '</div>';
+        
         return $html;
     }
 }
