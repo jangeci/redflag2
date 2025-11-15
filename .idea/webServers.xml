@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f858f535-4e0b-4965-9c33-14cb5e9ceb8d" name="ecoportal" url="http://eco-portal.site">
+        <fileTransfer rootFolder="/eco-portal.site/web/wp-content/themes/red-flag" accessType="SFTP" host="eco-portal.site" port="22" sshConfigId="fcb595d8-6fe6-4951-9c92-f2bf51885896" sshConfig="admin.eco-portal.site@eco-portal.site:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

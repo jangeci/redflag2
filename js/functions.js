@@ -161,7 +161,7 @@ if (jQuery('.slider-section-slider').length) {
         let singleSlider = jQuery(this);
         singleSlider.slick({
             infinite: true,
-            speed: 1300,
+            speed: 500,
             slidesToShow: 5,
             autoplay: true,
             responsive: [

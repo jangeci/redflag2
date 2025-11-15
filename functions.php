@@ -159,18 +159,87 @@ add_action('admin_enqueue_scripts', 'admin_style');
 //];
 //register_post_type('people', $people);
 
-//$schoolCategory = [
-//    'public' => true,
-//    'label' => 'School Category',
-//    'labels' => [
-//        'name' => 'School Categories',
-//        'singular_name' => 'School Category'
-//    ],
-//    'hierarchical' => true,
-//    'show_in_rest' => true,
-//    'rewrite' => array('slug' => 'regions')
-//];
-//register_taxonomy('school_category', ['school'], $schoolCategory);
+$partners = [
+    'public' => true,
+    'label' => 'Partners',
+    'labels' => [
+        'name' => 'Partners',
+        'singular_name' => 'Partner'
+    ],
+    'menu_icon' => 'dashicons-groups',
+    'show_in_rest' => true,
+    'template' => [
+        ['jg-blocks/page-header']
+    ],
+    'supports' => [
+        'title',
+        'editor',
+        'thumbnail',
+        'custom-fields'
+    ]
+];
+register_post_type('partners', $partners);
+
+function register_partners_pods_fields()
+{
+    /**
+     * Extend partners post type with logo field
+     */
+    $pod = [
+        'name' => 'partners',
+        'label' => 'Partners',
+        'type' => 'post_type',
+        'storage' => 'meta',
+        'object' => 'partners', // Your post type slug
+    ];
+    
+    pods_register_type($pod['type'], $pod['name'], $pod);
+    
+    $group = [
+        'name' => 'partner_details',
+        'label' => 'Partner Details',
+        'description' => '',
+        'weight' => 0,
+    ];
+    
+    $group_fields = [
+        'logo' => [
+            'name' => 'logo',
+            'label' => 'Partner Logo',
+            'description' => 'Upload the partner logo',
+            'weight' => 0,
+            'type' => 'file',
+            'file_format_type' => 'single',
+            'file_uploader' => 'attachment',
+            'file_type' => 'images',
+        ],
+        'description' => [
+            'name' => 'description',
+            'label' => 'Partner Description',
+            'description' => 'Brief description of the partner',
+            'weight' => 1,
+            'type' => 'wysiwyg',
+            'wysiwyg_editor' => 'tinymce',
+        ],
+    ];
+    
+    pods_register_group($group, $pod['name'], $group_fields);
+}
+
+add_action('init', 'register_partners_pods_fields');
+
+$partnerCategory = [
+    'public' => true,
+    'label' => 'Partner Category',
+    'labels' => [
+        'name' => 'Partner Categories',
+        'singular_name' => 'Partner Category'
+    ],
+    'hierarchical' => true,
+    'show_in_rest' => true,
+    'rewrite' => array('slug' => 'partner-category'),
+];
+register_taxonomy('partner_category', ['partners'], $partnerCategory);
 
 /*Template for default posts*/
 function be_post_block_template()
