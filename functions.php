@@ -221,6 +221,12 @@ function register_partners_pods_fields()
             'type' => 'wysiwyg',
             'wysiwyg_editor' => 'tinymce',
         ],
+        'link' => [
+            'name' => 'link',
+            'label' => 'Partner external link',
+            'weight' => 1,
+            'type' => 'text',
+        ],
     ];
     
     pods_register_group($group, $pod['name'], $group_fields);

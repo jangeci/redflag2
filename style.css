@@ -235,6 +235,15 @@ input[type="range"] { accent-color: var(--primary-color); }
 .block-with-background p { color: white; margin: 0; }
 .block-with-background .wp-block-video { margin: 20px 0 }
 
+/*partners block*/
+.partner-item {display: flex; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
+.partner-item .partner-logo { max-width: 100px; margin-right: 16px;}
+.partner-item .partner-logo img { width: 100%; }
+.partner-item .partner-title { text-decoration: none; }
+.partner-item .partner-title h3 {  color: var(--menu-text-color); margin: 8px 0; }
+.partner-item .partner-description { width: 100%; }
+/*end partners block*/
+
 @media (max-width: 767px) {
     .image-with-text-v1 { padding: 40px 0; }
     .image-with-text-v1 .row { display: block; }

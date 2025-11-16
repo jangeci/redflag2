@@ -247,85 +247,157 @@ class Renderer
     
     static function PartnersByCategory($attributes, $content)
     {
+        $categoryId = null;
+        
+        if (isset($_GET['category'])) {
+            $categoryId = $_GET['category'];
+        }
+        
         $className = isset($attributes['className']) ? $attributes['className'] : '';
         
         $html = '<div class="partners-by-category-block ' . esc_attr($className) . '">';
-        $html .= '<div class="container">';
+        $html .= '<div>';
         
-        $categories = get_terms([
-            'taxonomy' => 'partner_category',
-            'hide_empty' => true,
-            'orderby' => 'name',
-            'order' => 'ASC',
-        ]);
-        
-        if (!empty($categories) && !is_wp_error($categories)) {
-            foreach ($categories as $category) {
+        if ($categoryId !== null) {
+            $categories = get_terms([
+                'taxonomy' => 'partner_category',
+                'include' => [$categoryId],
+                'hide_empty' => false,
+            ]);
+            
+            if (!empty($categories) && !is_wp_error($categories)) {
+                foreach ($categories as $category) {
 //                $category_pod = pods('partner_category', $category->term_id);
-                
-                $html .= '<div class="container partner-category-section">';
-                $html .= '<div class="category-header">';
-                
-                $html .= '<h2 class="category-title">' . esc_html($category->name) . '</h2>';
-                $html .= '</div>';
-                
-                if ($category->description) {
-                    $html .= '<div class="category-description">' . wpautop($category->description) . '</div>';
-                }
-                
-                $args = [
-                    'post_type' => 'partners',
-                    'posts_per_page' => -1,
-                    'orderby' => 'title',
-                    'order' => 'ASC',
-                    'tax_query' => [
-                        [
-                            'taxonomy' => 'partner_category',
-                            'field' => 'term_id',
-                            'terms' => $category->term_id,
-                        ],
-                    ],
-                ];
-                
-                $partners = new WP_Query($args);
-                
-                if ($partners->have_posts()) {
-                    $html .= '<div class="partners-grid">';
                     
-                    while ($partners->have_posts()) {
-                        $partners->the_post();
-                        $pod = pods('partners', get_the_ID());
-                        $logo = $pod->field('logo');
-                        $description = $pod->field('description');
+                    $html .= '<div class="partner-category-section">';
+//                $html .= '<div class="category-header">';
+//
+//                $html .= '<h2 class="category-title">' . esc_html($category->name) . '</h2>';
+//                $html .= '</div>';
+
+//                if ($category->description) {
+//                    $html .= '<div class="category-description">' . wpautop($category->description) . '</div>';
+//                }
+                    
+                    $args = [
+                        'post_type' => 'partners',
+                        'posts_per_page' => -1,
+                        'orderby' => 'title',
+                        'order' => 'ASC',
+                        'tax_query' => [
+                            [
+                                'taxonomy' => 'partner_category',
+                                'field' => 'term_id',
+                                'terms' => $category->term_id,
+                            ],
+                        ],
+                    ];
+                    
+                    $partners = new WP_Query($args);
+                    
+                    if ($partners->have_posts()) {
+                        $html .= '<div class="partners-grid">';
                         
-                        $html .= '<div class="partner-item">';
-                        
-                        if ($logo) {
-                            $html .= '<div class="partner-logo">';
-                            $html .= '<img src="' . esc_url($logo['guid']) . '" alt="' . esc_attr(get_the_title()) . '">';
+                        while ($partners->have_posts()) {
+                            $partners->the_post();
+                            $pod = pods('partners', get_the_ID());
+                            $logo = $pod->field('logo');
+                            $link = $pod->field('link') ? $pod->field('link') : esc_url(get_permalink(get_the_id()));
+                            $description = $pod->field('description');
+                            
+                            $html .= '<div class="partner-item">';
+                            
+                            if ($logo) {
+                                $html .= '<div class="partner-logo">';
+                                $html .= '<a href="' . $link . '" target="_blank" rel="noopener noreferrer" class="partner-link">';
+                                $html .= '<img src="' . esc_url($logo['guid']) . '" alt="' . esc_attr(get_the_title()) . '">';
+                                $html .= '</a>';
+                                $html .= '</div>';
+                            }
+                            
+                            $html .= '<a href="' . $link . '" target="_blank" rel="noopener noreferrer" class="partner-link partner-title">';
+                            $html .= '<h3>' . get_the_title() . '</h3>';
+                            $html .= '</a>';
+                            
+                            
+                            if ($description) {
+                                $html .= '<div class="partner-description">' . wp_kses_post($description) . '</div>';
+                            }
+                            
                             $html .= '</div>';
                         }
                         
-                        $html .= '<div class="partner-content">';
-                        
-                        $html .= '<h3>' . get_the_title() . '</h3>';
-                        
-                        if ($description) {
-                            $html .= '<div class="partner-description">' . wp_kses_post($description) . '</div>';
-                        }
-                        
-                        $html .= '<a href="' . esc_url(get_permalink(get_the_id())) . '" target="_blank" rel="noopener noreferrer" class="partner-link">Čítať viac</a>';
-                        
                         $html .= '</div>';
-                        $html .= '</div>';
+                        wp_reset_postdata();
                     }
                     
                     $html .= '</div>';
-                    wp_reset_postdata();
+                }
+            }
+            
+        } else {
+//            $categories = get_terms([
+//                'taxonomy' => 'partner_category',
+//                'hide_empty' => true,
+//                'orderby' => 'name',
+//                'order' => 'ASC',
+//            ]);
+            
+            $html .= '<div class="partner-category-section">';
+//                $html .= '<div class="category-header">';
+//
+//                $html .= '<h2 class="category-title">' . esc_html($category->name) . '</h2>';
+//                $html .= '</div>';
+
+//                if ($category->description) {
+//                    $html .= '<div class="category-description">' . wpautop($category->description) . '</div>';
+//                }
+            
+            $args = [
+                'post_type' => 'partners',
+                'posts_per_page' => -1,
+                'orderby' => 'title',
+                'order' => 'ASC',
+            ];
+            
+            $partners = new WP_Query($args);
+            
+            if ($partners->have_posts()) {
+                $html .= '<div class="partners-grid">';
+                
+                while ($partners->have_posts()) {
+                    $partners->the_post();
+                    $pod = pods('partners', get_the_ID());
+                    $logo = $pod->field('logo');
+                    $link = $pod->field('link') ? $pod->field('link') : esc_url(get_permalink(get_the_id()));
+                    $description = $pod->field('description');
+                    
+                    $html .= '<div class="partner-item">';
+                    
+                    if ($logo) {
+                        $html .= '<div class="partner-logo">';
+                        $html .= '<a href="' . $link . '" target="_blank" rel="noopener noreferrer" class="partner-link">';
+                        $html .= '<img src="' . esc_url($logo['guid']) . '" alt="' . esc_attr(get_the_title()) . '">';
+                        $html .= '</a>';
+                        $html .= '</div>';
+                    }
+                    $html .= '<a href="' . $link . '" target="_blank" rel="noopener noreferrer" class="partner-link partner-title">';
+                    $html .= '<h3>' . get_the_title() . '</h3>';
+                    $html .= '</a>';
+                    
+                    
+                    if ($description) {
+                        $html .= '<div class="partner-description">' . wp_kses_post($description) . '</div>';
+                    }
+                    
+                    $html .= '</div>';
                 }
                 
                 $html .= '</div>';
+                wp_reset_postdata();
             }
+            
+            $html .= '</div>';
         }
         
         $html .= '</div>';
