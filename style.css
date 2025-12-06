@@ -269,6 +269,7 @@ input[type="range"] { accent-color: var(--primary-color); }
 .large-slider-single-item-content a:hover { background-color: var(--primary-color-hover); }
 .large-slider-single-item-content h2 {font-weight: 700; font-size: 56px; line-height: 1.1; margin-bottom: 26px; text-transform: uppercase; }
 .large-slider-single-item-content p { font-size: 20px; font-weight: 500; }
+.large-slider-left-content img { max-width: 425px; }
 
 @media (max-width: 991px) {
     .large-slider-single-item-inner .container img { display: none; }

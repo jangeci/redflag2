@@ -315,11 +315,6 @@ class Renderer
                                 $html .= '</div>';
                             }
                             
-                            $html .= '<a href="' . $link . '" target="_blank" rel="noopener noreferrer" class="partner-link partner-title">';
-                            $html .= '<h3>' . get_the_title() . '</h3>';
-                            $html .= '</a>';
-                            
-                            
                             if ($description) {
                                 $html .= '<div class="partner-description">' . wp_kses_post($description) . '</div>';
                             }
@@ -381,10 +376,6 @@ class Renderer
                         $html .= '</a>';
                         $html .= '</div>';
                     }
-                    $html .= '<a href="' . $link . '" target="_blank" rel="noopener noreferrer" class="partner-link partner-title">';
-                    $html .= '<h3>' . get_the_title() . '</h3>';
-                    $html .= '</a>';
-                    
                     
                     if ($description) {
                         $html .= '<div class="partner-description">' . wp_kses_post($description) . '</div>';

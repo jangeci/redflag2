@@ -86,8 +86,7 @@
                                 <p>
                                     Tel:
                                     <strong>
-                                        <br><a href="tel:+421910733507">+421 910 733 507</a>
-                                        <br><a href="tel:+421915479221">+421 915 479 221</a>
+                                        <br><a href="tel:+421911112442">+421 911 112 442</a>
                                     </strong>
                                 </p>
                             </div>
@@ -124,8 +123,7 @@
                                     Friends:
                                     <br>
                                     <strong>
-                                        <a target="_blank" href="https://www.krr.sk">www.krr.sk</a>
-                                        <br><a target="_blank" href="https://www.narask.sk">www.narask.sk</a>
+                                        <a target="_blank" href="https://www.krr.sk">www.krr.sk</a>                               
                                     </strong>
                                 </p>
                             </div>
