@@ -139,6 +139,15 @@
                                 </p>
                             </div>
                         </div>
+                        <div class="one-half">
+                            <div class="footer-bottom-branch third">
+                                <p>
+                                    <strong>
+                                        <a href="http://www.ecoportal.site/">STARÝ ECOPORTAL</a>
+                                    <strong>
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="footer-right-bottom-section">
