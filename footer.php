@@ -62,7 +62,6 @@
             <div class="container">
             </div>
         </div>
-
         <div class="footer-bottom-content">
             <div class="container">
                 <div class="row">
