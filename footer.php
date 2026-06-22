@@ -133,21 +133,14 @@
                                 <p>
                                     Email:
                                     <br>
-                                    <strong><a href="mailto:info@eco-portal.site">info@eco-portal.site</a></strong>
-                                    <br>
-                                    <strong><a href="mailto:obchod@eco-portal.site">obchod@eco-portal.site</a></strong>
+                                    <strong><a href="mailto:obchod@maxport.sk">obchod@maxport.sk</a></strong>
                                 </p>
                             </div>
                         </div>
-                        <div class="one-half">
-                            <div class="footer-bottom-branch third">
-                                <p>
-                                    <strong>
-                                        <a href="http://www.ecoportal.site/">STARÝ ECOPORTAL</a>
-                                    <strong>
-                                </p>
-                            </div>
-                        </div>
+<!--                        <div class="one-half">-->
+<!--                            <div class="footer-bottom-branch third">-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
 
                     <div class="footer-right-bottom-section">
