@@ -110,6 +110,8 @@
                                     Adresa:
                                     <br>
                                     <strong>
+                                        MAXPORT s. r. o.
+                                        <br>
                                         Business centrum Chmelová
                                         <br>
                                         Chmeľová dolina 27, Nitra
